@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🌊 宜蘭小旅行 6/12–6/14</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #fff9f5;
@@ -34,56 +34,141 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif;
     min-height: 100vh;
   }
 
-  /* ── NAV TABS ── */
-  .tab-nav {
+  /* ── PILL NAV ── */
+  .tab-nav-wrap {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--bg);
+    background: rgba(255, 249, 245, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 10px 0 10px;
     border-bottom: 1.5px solid var(--border);
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    padding: 0 16px;
   }
+
+  .tab-nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 0 16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tab-nav::-webkit-scrollbar { display: none; }
 
   .tab-btn {
-    display: flex;
+    display: inline-flex;
+    flex-direction: column;
     align-items: center;
-    gap: 6px;
-    padding: 14px 18px;
-    font-size: 13px;
-    font-weight: 500;
+    gap: 2px;
+    padding: 8px 14px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 600;
     color: var(--muted);
     cursor: pointer;
-    border: none;
-    background: none;
-    border-bottom: 3px solid transparent;
-    margin-bottom: -1.5px;
-    transition: color 0.2s, border-color 0.2s;
+    border: 2px solid transparent;
+    background: var(--card);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: all 0.18s ease;
     white-space: nowrap;
-    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif;
+    flex-shrink: 0;
   }
 
-  .tab-btn .emoji { font-size: 16px; }
+  .tab-btn .emoji { font-size: 20px; line-height: 1.1; }
+  .tab-btn .tab-text { font-size: 10px; letter-spacing: 0.03em; }
 
   .tab-btn.active {
-    color: var(--peach);
-    border-bottom-color: var(--peach);
-    font-weight: 700;
+    background: var(--peach);
+    color: #fff;
+    border-color: var(--peach);
+    box-shadow: 0 3px 10px rgba(249,124,86,0.3);
   }
 
-  .tab-btn:hover:not(.active) { color: var(--ink); }
+  .tab-btn:hover:not(.active) {
+    border-color: var(--peach-mid);
+    color: var(--ink);
+  }
 
   /* ── PAGES ── */
   .page { display: none; animation: fadeIn 0.3s ease; }
   .page.active { display: block; }
 
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── SIGNBOARD ── */
+  .signboard {
+    display: inline-block;
+    margin-bottom: 14px;
+    animation: swingSign 3s ease-in-out infinite;
+    transform-origin: top center;
+  }
+
+  @keyframes swingSign {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+
+  .signboard-rope {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: -2px;
+  }
+
+  .rope-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #c4956a;
+    flex-shrink: 0;
+  }
+
+  .rope-line {
+    width: 28px; height: 2px;
+    background: #c4956a;
+    flex-shrink: 0;
+  }
+
+  .signboard-body {
+    background: #fff3e0;
+    border: 2.5px solid #e8b07a;
+    border-radius: 12px;
+    padding: 8px 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 3px 0 #e8b07a, 0 5px 12px rgba(200,130,60,0.15);
+    position: relative;
+  }
+
+  .signboard-body::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 8px;
+    border: 1px dashed #f5c98a;
+    pointer-events: none;
+  }
+
+  .signboard-text {
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #b05e20;
+    letter-spacing: 0.18em;
+  }
+
+  .signboard-star {
+    font-size: 11px;
+    color: #e8a040;
+  }
 
   /* ── COVER PAGE ── */
   .cover {
@@ -106,7 +191,7 @@
   }
 
   .cover-title {
-    font-family: 'Noto Serif TC', serif;
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif;
     font-size: 36px;
     font-weight: 700;
     color: var(--ink);
@@ -198,7 +283,7 @@
   }
 
   .day-hero-info .day-big-title {
-    font-family: 'Noto Serif TC', serif;
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif;
     font-size: 20px;
     font-weight: 700;
     color: var(--ink);
@@ -330,7 +415,7 @@
   }
 
   .notes-banner .nb-emoji { font-size: 40px; display: block; margin-bottom: 10px; }
-  .notes-banner .nb-title { font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; color: var(--ink); }
+  .notes-banner .nb-title { font-family: 'Nunito', 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 700; color: var(--ink); }
 
   .note-card {
     background: var(--card);
@@ -436,11 +521,9 @@
     margin-top: 24px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.7;
   }
 
+
   /* ── RESPONSIVE ── */
   @media (max-width: 500px) {
-    .tab-btn { padding: 12px 11px; font-size: 12px; gap: 4px; }
-    .tab-btn .tab-text { display: none; }
-    .tab-btn .emoji { font-size: 18px; }
     .cover-days { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   }
 </style>
@@ -448,31 +531,44 @@
 <body>
 
 <!-- NAV TABS -->
+<div class="tab-nav-wrap">
 <nav class="tab-nav" role="tablist">
   <button class="tab-btn active" onclick="showPage('cover', this)" role="tab">
     <span class="emoji">🗺️</span><span class="tab-text">總覽</span>
   </button>
+  <button class="tab-btn" onclick="showPage('cars', this)" role="tab">
+    <span class="emoji">🚗</span><span class="tab-text">分車表</span>
+  </button>
   <button class="tab-btn" onclick="showPage('day1', this)" role="tab">
-    <span class="emoji">🌙</span><span class="tab-text">Day 1</span>
+    <span class="emoji">🌙</span><span class="tab-text">6/12</span>
   </button>
   <button class="tab-btn" onclick="showPage('day2', this)" role="tab">
-    <span class="emoji">☀️</span><span class="tab-text">Day 2</span>
+    <span class="emoji">☀️</span><span class="tab-text">6/13</span>
   </button>
   <button class="tab-btn" onclick="showPage('day3', this)" role="tab">
-    <span class="emoji">🌊</span><span class="tab-text">Day 3</span>
+    <span class="emoji">🌊</span><span class="tab-text">6/14</span>
   </button>
   <button class="tab-btn" onclick="showPage('notes', this)" role="tab">
     <span class="emoji">📝</span><span class="tab-text">提醒</span>
   </button>
-  <button class="tab-btn" onclick="showPage('cars', this)" role="tab">
-    <span class="emoji">🚗</span><span class="tab-text">分車表</span>
-  </button>
 </nav>
+</div>
 
 <!-- ══ COVER ══ -->
 <div id="cover" class="page active">
   <div class="cover">
     <span class="cover-sticker">🌿</span>
+    <div class="signboard">
+      <div class="signboard-rope">
+        <span class="rope-dot"></span><span class="rope-line"></span><span class="rope-dot"></span>
+        <span class="rope-line"></span><span class="rope-dot"></span>
+      </div>
+      <div class="signboard-body">
+        <span class="signboard-star">✦</span>
+        <span class="signboard-text">江江組</span>
+        <span class="signboard-star">✦</span>
+      </div>
+    </div>
     <h1 class="cover-title">宜蘭小旅行</h1>
     <p class="cover-date">2026 · 6月12日（五）— 6月14日（日）</p>
     <div class="cover-pills">
@@ -483,23 +579,7 @@
       <span class="pill pill-pink">🍦 免費冰棒</span>
       <span class="pill pill-lav">☕ 海景咖啡</span>
     </div>
-    <div class="cover-days">
-      <div class="cover-day-card" onclick="showPage('day1', document.querySelectorAll('.tab-btn')[1])">
-        <span class="day-emoji">🌙</span>
-        <div class="day-label">Day 1 · 6/12 (五)</div>
-        <div class="day-theme">下班微醺，礁溪會合</div>
-      </div>
-      <div class="cover-day-card" onclick="showPage('day2', document.querySelectorAll('.tab-btn')[2])">
-        <span class="day-emoji">☀️</span>
-        <div class="day-label">Day 2 · 6/13 (六)</div>
-        <div class="day-theme">質感漫遊，包棟狂歡</div>
-      </div>
-      <div class="cover-day-card" onclick="showPage('day3', document.querySelectorAll('.tab-btn')[3])">
-        <span class="day-emoji">🌊</span>
-        <div class="day-label">Day 3 · 6/14 (日)</div>
-        <div class="day-theme">熱血迎晨，海景慢活</div>
-      </div>
-    </div>
+    <p style="margin-top:8px; font-size:12px; color:var(--muted); letter-spacing:0.05em;">點上方選單切換每日行程 👆</p>
   </div>
 </div>
 
@@ -619,6 +699,18 @@
 
       <div class="tl-item">
         <div class="tl-left">
+          <div class="tl-dot tl-dot-pink">🍡</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--pink);">15:00</div>
+          <div class="tl-title">三日和菓｜日式手工甜點</div>
+          <div class="tl-desc">精緻日式和菓子，下午茶的甜蜜小確幸 🍵</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
           <div class="tl-dot tl-dot-lav">🛒</div>
           <div class="tl-line"></div>
         </div>
@@ -710,7 +802,7 @@
         </div>
         <div class="tl-card">
           <div class="tl-time" style="color: var(--peach);">11:30</div>
-          <div class="tl-title">歡聚午餐（11 人）</div>
+          <div class="tl-title">歡聚午餐（12 人）</div>
           <div class="tl-desc">優先：<strong style="color: var(--ink);">OA PIZZA</strong>（烏石港）🍕</div>
           <div class="opt-label">備案選項</div>
           <div class="opt-chips">
