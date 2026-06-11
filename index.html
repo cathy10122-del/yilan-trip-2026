@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌊 宜蘭小旅行 6/12–6/14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff9f5;
+    --card: #ffffff;
+    --ink: #2d2018;
+    --muted: #8c7b70;
+    --border: #ead9cc;
+    --peach: #f97c56;
+    --peach-light: #fff0ea;
+    --peach-mid: #fdd5c4;
+    --sky: #5bb8d4;
+    --sky-light: #e8f6fb;
+    --mint: #5db89a;
+    --mint-light: #e4f5ef;
+    --lemon: #f5c842;
+    --lemon-light: #fef8e1;
+    --pink: #f06b9a;
+    --pink-light: #fde8f1;
+    --lavender: #a08fdc;
+    --lav-light: #f0edfb;
+    --r: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* ── PILL NAV ── */
+  .tab-nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 249, 245, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 10px 0 10px;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  .tab-nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 0 16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tab-nav::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 8px 14px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    border: 2px solid transparent;
+    background: var(--card);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: all 0.18s ease;
+    white-space: nowrap;
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif;
+    flex-shrink: 0;
+  }
+
+  .tab-btn .emoji { font-size: 20px; line-height: 1.1; }
+  .tab-btn .tab-text { font-size: 10px; letter-spacing: 0.03em; }
+
+  .tab-btn.active {
+    background: var(--peach);
+    color: #fff;
+    border-color: var(--peach);
+    box-shadow: 0 3px 10px rgba(249,124,86,0.3);
+  }
+
+  .tab-btn:hover:not(.active) {
+    border-color: var(--peach-mid);
+    color: var(--ink);
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; animation: fadeIn 0.3s ease; }
+  .page.active { display: block; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── SIGNBOARD ── */
+  .signboard {
+    display: inline-block;
+    margin-bottom: 14px;
+    animation: swingSign 3s ease-in-out infinite;
+    transform-origin: top center;
+  }
+
+  @keyframes swingSign {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+
+  .signboard-rope {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: -2px;
+  }
+
+  .rope-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #c4956a;
+    flex-shrink: 0;
+  }
+
+  .rope-line {
+    width: 28px; height: 2px;
+    background: #c4956a;
+    flex-shrink: 0;
+  }
+
+  .signboard-body {
+    background: #fff3e0;
+    border: 2.5px solid #e8b07a;
+    border-radius: 12px;
+    padding: 8px 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 3px 0 #e8b07a, 0 5px 12px rgba(200,130,60,0.15);
+    position: relative;
+  }
+
+  .signboard-body::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 8px;
+    border: 1px dashed #f5c98a;
+    pointer-events: none;
+  }
+
+  .signboard-text {
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #b05e20;
+    letter-spacing: 0.18em;
+  }
+
+  .signboard-star {
+    font-size: 11px;
+    color: #e8a040;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    text-align: center;
+    padding: 48px 24px 40px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cover-sticker {
+    font-size: 56px;
+    display: block;
+    margin-bottom: 16px;
+    animation: bounce 2s ease infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .cover-title {
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .cover-date {
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 28px;
+  }
+
+  .cover-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .pill-peach { background: var(--peach-light); color: var(--peach); }
+  .pill-sky { background: var(--sky-light); color: var(--sky); }
+  .pill-mint { background: var(--mint-light); color: var(--mint); }
+  .pill-pink { background: var(--pink-light); color: var(--pink); }
+  .pill-lemon { background: var(--lemon-light); color: #b08a00; }
+  .pill-lav { background: var(--lav-light); color: var(--lavender); }
+
+  .cover-days {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .cover-day-card {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r);
+    padding: 16px 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .cover-day-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--peach);
+    box-shadow: 0 6px 20px rgba(249,124,86,0.12);
+  }
+
+  .cover-day-card .day-emoji { font-size: 28px; display: block; margin-bottom: 8px; }
+  .cover-day-card .day-label { font-size: 11px; color: var(--muted); font-weight: 500; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .cover-day-card .day-theme { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+
+  /* ── DAY PAGES ── */
+  .day-page { max-width: 640px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  .day-hero {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+
+  .day-hero-emoji { font-size: 44px; flex-shrink: 0; }
+
+  .day-hero-info .day-weekday {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .day-hero-info .day-big-title {
+    font-family: 'Nunito', 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; }
+
+  .tl-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+
+  .tl-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48px;
+    flex-shrink: 0;
+    padding-top: 4px;
+  }
+
+  .tl-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    border: 2px solid transparent;
+  }
+
+  .tl-dot-peach { background: var(--peach-light); border-color: var(--peach-mid); }
+  .tl-dot-sky { background: var(--sky-light); }
+  .tl-dot-mint { background: var(--mint-light); }
+  .tl-dot-lemon { background: var(--lemon-light); }
+  .tl-dot-pink { background: var(--pink-light); }
+  .tl-dot-lav { background: var(--lav-light); }
+
+  .tl-line {
+    width: 2px;
+    flex: 1;
+    min-height: 24px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-top: 6px;
+  }
+
+  .tl-card {
+    flex: 1;
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r);
+    padding: 14px 16px;
+    min-width: 0;
+  }
+
+  .tl-time {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .tl-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .tl-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* option chips */
+  .opt-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+  .chip {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-weight: 500;
+    border: 1px solid transparent;
+  }
+
+  .chip-peach { background: var(--peach-light); color: var(--peach); border-color: var(--peach-mid); }
+  .chip-sky { background: var(--sky-light); color: #3a99b8; }
+  .chip-mint { background: var(--mint-light); color: var(--mint); }
+  .chip-gray { background: #f5f0eb; color: #7a6d64; }
+  .chip-lav { background: var(--lav-light); color: var(--lavender); }
+
+  .opt-label { font-size: 11px; color: var(--muted); font-weight: 500; margin-top: 8px; margin-bottom: 4px; letter-spacing: 0.06em; }
+
+  /* split card */
+  .split-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+
+  .split-mini {
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .split-mini .sm-emoji { font-size: 22px; display: block; margin-bottom: 6px; }
+  .split-mini .sm-title { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+  .split-mini .sm-desc { font-size: 12px; color: var(--muted); }
+
+  /* ── NOTES PAGE ── */
+  .notes-page { max-width: 640px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  .notes-banner {
+    background: linear-gradient(135deg, #fff0ea 0%, #fde8f1 100%);
+    border: 1.5px solid var(--peach-mid);
+    border-radius: 10px;
+    padding: 7px 14px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 12px;
+  }
+
+  .notes-banner .nb-emoji { font-size: 16px; flex-shrink: 0; }
+  .notes-banner .nb-title { font-family: 'Nunito', 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 700; color: var(--ink); }
+
+  .note-card {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r);
+    padding: 16px 18px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .note-num-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--peach);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .note-text { font-size: 14px; color: var(--ink); line-height: 1.75; }
+  .note-text strong { color: var(--peach); }
+
+  .splitwise-box {
+    background: var(--ink);
+    border-radius: var(--r);
+    padding: 24px;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .sw-emoji { font-size: 36px; }
+  .sw-title { font-size: 16px; font-weight: 700; color: #fff; }
+  .sw-desc { font-size: 13px; color: #b0a89e; line-height: 1.6; }
+
+  .sw-btn {
+    display: inline-block;
+    background: var(--peach);
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 11px 28px;
+    border-radius: 100px;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+
+  .sw-btn:hover { opacity: 0.88; transform: translateY(-2px); }
+
+  /* ── CAR PAGE ── */
+  .car-page { max-width: 640px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  .car-section-title { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; margin-top: 28px; }
+  .car-section-title:first-child { margin-top: 0; }
+
+  .car-section-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 14px; border-radius: 100px; font-size: 13px; font-weight: 700;
+  }
+  .badge-go { background: var(--mint-light); color: var(--mint); }
+  .badge-back { background: var(--sky-light); color: var(--sky); }
+
+  .car-grid { display: flex; flex-direction: column; gap: 12px; }
+
+  .car-card { background: var(--card); border: 1.5px solid var(--border); border-radius: var(--r); overflow: hidden; }
+
+  .car-card-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px 12px; border-bottom: 1px solid var(--border);
+  }
+  .car-driver-emoji { font-size: 26px; }
+  .car-driver-name { font-size: 16px; font-weight: 700; color: var(--ink); }
+  .car-driver-label { font-size: 11px; color: var(--muted); font-weight: 500; letter-spacing: 0.06em; }
+
+  .car-card-body { padding: 14px 18px; }
+
+  .car-passengers { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+
+  .passenger-chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: var(--bg); border: 1.5px solid var(--border);
+    border-radius: 100px; padding: 5px 12px; font-size: 13px; font-weight: 500; color: var(--ink);
+  }
+
+  .car-meta { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); }
+  .car-meta-row { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--muted); }
+  .car-meta-row strong { color: var(--ink); white-space: nowrap; }
+
+  .car-note {
+    background: var(--lemon-light); border: 1.5px solid #f0d870;
+    border-radius: 12px; padding: 12px 16px; font-size: 13px; color: #7a6500;
+    margin-top: 24px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.7;
+  }
+
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 500px) {
+    .cover-days { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV TABS -->
+<div class="tab-nav-wrap">
+<nav class="tab-nav" role="tablist">
+  <button class="tab-btn active" onclick="showPage('cover', this)" role="tab">
+    <span class="emoji">🗺️</span><span class="tab-text">總覽</span>
+  </button>
+  <button class="tab-btn" onclick="showPage('cars', this)" role="tab">
+    <span class="emoji">🚗</span><span class="tab-text">分車表</span>
+  </button>
+  <button class="tab-btn" onclick="showPage('day1', this)" role="tab">
+    <span class="emoji">🌙</span><span class="tab-text">6/12</span>
+  </button>
+  <button class="tab-btn" onclick="showPage('day2', this)" role="tab">
+    <span class="emoji">☀️</span><span class="tab-text">6/13</span>
+  </button>
+  <button class="tab-btn" onclick="showPage('day3', this)" role="tab">
+    <span class="emoji">🌊</span><span class="tab-text">6/14</span>
+  </button>
+  <button class="tab-btn" onclick="showPage('notes', this)" role="tab">
+    <span class="emoji">📝</span><span class="tab-text">提醒</span>
+  </button>
+  <button class="tab-btn" onclick="showPage('splitwise', this)" role="tab">
+    <span class="emoji">💸</span><span class="tab-text">分帳</span>
+  </button>
+</nav>
+</div>
+
+<!-- ══ COVER ══ -->
+<div id="cover" class="page active">
+  <div class="cover">
+    <span class="cover-sticker">🌿</span>
+    <div class="signboard">
+      <div class="signboard-rope">
+        <span class="rope-dot"></span><span class="rope-line"></span><span class="rope-dot"></span>
+        <span class="rope-line"></span><span class="rope-dot"></span>
+      </div>
+      <div class="signboard-body">
+        <span class="signboard-star">✦</span>
+        <span class="signboard-text">江江組</span>
+        <span class="signboard-star">✦</span>
+      </div>
+    </div>
+    <h1 class="cover-title">宜蘭小旅行</h1>
+    <p class="cover-date">2026 · 6月12日（五）— 6月14日（日）</p>
+    <div class="cover-pills">
+      <span class="pill pill-sky">🌊 礁溪溫泉</span>
+      <span class="pill pill-peach">🔥 包棟火鍋</span>
+      <span class="pill pill-mint">🍕 烏石港美食</span>
+      <span class="pill pill-lemon">🏃‍♀️ 晨間路跑</span>
+      <span class="pill pill-pink">🍦 免費冰棒</span>
+      <span class="pill pill-lav">☕ 海景咖啡</span>
+    </div>
+    <p style="margin-top:8px; font-size:12px; color:var(--muted); letter-spacing:0.05em;">點上方選單切換每日行程 👆</p>
+  </div>
+</div>
+
+<!-- ══ DAY 1 ══ -->
+<div id="day1" class="page">
+  <div class="day-page">
+    <div class="day-hero">
+      <div class="day-hero-emoji">🌙</div>
+      <div class="day-hero-info">
+        <div class="day-weekday" style="color: var(--peach);">Friday · June 12</div>
+        <div class="day-big-title">下班微醺，礁溪會合</div>
+        <span class="pill pill-peach" style="font-size:12px; padding:4px 10px;">👥 10 人</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-sky">🚌</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--sky);">19:00 — 21:00</div>
+          <div class="tl-title">分批前往宜蘭</div>
+          <div class="tl-desc">下班後分頭乘車，陸續前往宜蘭，輕鬆出發！</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-mint">🏠</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--mint);">20:30</div>
+          <div class="tl-title">入住 Chill湯溫泉民宿</div>
+          <div class="tl-desc">放下行李，泡個天然美人湯先暖身～ 🛁</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-peach">🍢</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--peach);">21:00</div>
+          <div class="tl-title">居酒屋彈性聚餐</div>
+          <div class="tl-desc">礁溪串燒小酒一起喝，正式開啟宜蘭模式！</div>
+          <div class="opt-label">推薦選項</div>
+          <div class="opt-chips">
+            <span class="chip chip-peach">🍻 買醉串燒酒場</span>
+            <span class="chip chip-peach">🔥 林北烤好</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DAY 2 ══ -->
+<div id="day2" class="page">
+  <div class="day-page">
+    <div class="day-hero">
+      <div class="day-hero-emoji">☀️</div>
+      <div class="day-hero-info">
+        <div class="day-weekday" style="color: var(--lemon); filter: brightness(0.85);">Saturday · June 13</div>
+        <div class="day-big-title">質感漫遊，包棟狂歡</div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
+          <span class="pill pill-lemon" style="font-size:12px; padding:4px 10px;">☀️ 白天 10 人</span>
+          <span class="pill pill-pink" style="font-size:12px; padding:4px 10px;">🌙 晚上 12 人</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-lemon">🌅</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: #b08a00;">10:00</div>
+          <div class="tl-title">民宿悠閒早晨</div>
+          <div class="tl-desc">睡到自然醒，溫泉隨時泡，慢慢來不趕～</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-mint">🌿</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--mint);">11:00</div>
+          <div class="tl-title">白天宜蘭晃晃 ＆ 午餐</div>
+          <div class="tl-desc">午餐：<strong style="color: var(--ink);">Yii GARDEN Cafe</strong> 🌱</div>
+          <div class="opt-label">景點選項</div>
+          <div class="opt-chips">
+            <span class="chip chip-mint">🏖 壯圍沙丘生態園區</span>
+            <span class="chip chip-mint">🦁 蘭陽動植物王國</span>
+            <span class="chip chip-gray">✨ 其他隨興景點</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-sky">🍦</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--sky);">14:00</div>
+          <div class="tl-title">宜蘭冰棒土地公（順風宮）</div>
+          <div class="tl-desc">免費結緣冰棒！必打卡，消消暑再出發 ☀️</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-pink">🍡</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--pink);">15:00</div>
+          <div class="tl-title">三日和菓｜日式手工甜點</div>
+          <div class="tl-desc">精緻日式和菓子，下午茶的甜蜜小確幸 🍵</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-lav">🛒</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--lavender);">16:30</div>
+          <div class="tl-title">喜互惠大採購</div>
+          <div class="tl-desc">備料 <span class="chip chip-lav" style="font-size:12px;">12 人份</span> 當日火鍋食材 ＋ 隔日早餐，大家一起採購超好玩！</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-peach">🔥</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--peach);">17:30</div>
+          <div class="tl-title">返回民宿煮火鍋大會</div>
+          <div class="tl-desc">包棟自煮，熱熱鬧鬧！之後泡湯、桌遊、麻將、唱歌隨便玩 🎵</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DAY 3 ══ -->
+<div id="day3" class="page">
+  <div class="day-page">
+    <div class="day-hero">
+      <div class="day-hero-emoji">🌊</div>
+      <div class="day-hero-info">
+        <div class="day-weekday" style="color: var(--sky);">Sunday · June 14</div>
+        <div class="day-big-title">熱血迎晨，海景慢活</div>
+        <span class="pill pill-sky" style="font-size:12px; padding:4px 10px;">👥 12 人</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-lemon">🌄</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: #b08a00;">05:00 — 10:00</div>
+          <div class="tl-title">晨間分流活動</div>
+          <div class="tl-desc">各自選擇最適合自己的早晨方式 ✨</div>
+          <div class="split-row">
+            <div class="split-mini">
+              <span class="sm-emoji">🏃‍♀️</span>
+              <div class="sm-title">熱血路跑組</div>
+              <div class="sm-desc">4 人 · 晨光海邊跑</div>
+            </div>
+            <div class="split-mini">
+              <span class="sm-emoji">🛌</span>
+              <div class="sm-title">民宿耍廢組</div>
+              <div class="sm-desc">8 人 · 溫泉躺好滿</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-sky">⚓</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--sky);">10:00</div>
+          <div class="tl-title">烏石港大集合與盥洗</div>
+          <div class="tl-desc">全員集合，梳洗整頓準備退房！</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-mint">🏠</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--mint);">11:00</div>
+          <div class="tl-title">準時退房</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-peach">🍽</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--peach);">11:30</div>
+          <div class="tl-title">歡聚午餐（12 人）</div>
+          <div class="tl-desc"><strong style="color: var(--ink);">OA PIZZA</strong>（烏石港）🍕 <span class="chip chip-mint" style="font-size:11px;">✅ 已訂位</span></div>
+          <div class="opt-label">備案選項</div>
+          <div class="opt-chips">
+            <span class="chip chip-peach">🐔 甕窯雞 礁溪總店</span>
+            <span class="chip chip-sky">🦞 幸福36號海鮮（頭城）</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-lav">☕</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--lavender);">14:00 — 18:00</div>
+          <div class="tl-title">烏石港放空散步 ＆ 咖啡</div>
+          <div class="tl-desc">海景配咖啡，美好旅程的句點 ☁️</div>
+          <div class="opt-label">咖啡店選項</div>
+          <div class="opt-chips">
+            <span class="chip chip-lav">☕ 啾咕咖啡 Tjukucafe</span>
+            <span class="chip chip-lav">🎨 這浬咖啡文創所</span>
+            <span class="chip chip-lav">🏰 Mr. Brown 城堡一門市</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot tl-dot-sky">🚌</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-time" style="color: var(--sky);">18:00</div>
+          <div class="tl-title">啟程回台北</div>
+          <div class="tl-desc">帶著滿滿回憶，平安回家！掰掰宜蘭 👋</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NOTES ══ -->
+<div id="notes" class="page">
+  <div class="notes-page">
+    <div class="notes-banner">
+      <span class="nb-emoji">💌</span>
+      <div class="nb-title">出發前記得看這裡！</div>
+    </div>
+
+    <div class="note-card">
+      <div class="note-num-badge">1</div>
+      <div class="note-text"><strong>分車表</strong> 已公布！請點上方「🚗 分車表」頁面確認自己的車次與集合資訊唷～</div>
+    </div>
+    <div class="note-card">
+      <div class="note-num-badge">2</div>
+      <div class="note-text">大家可以帶自己的 <strong>桌遊、麻將、歌唱組</strong> 來～ 愈熱鬧愈好！🎶</div>
+    </div>
+    <div class="note-card">
+      <div class="note-num-badge">3</div>
+      <div class="note-text">住宿附有 <strong>天然美人湯溫泉</strong>，記得帶換洗衣物和泳衣唷 🛁✨</div>
+    </div>
+    <div class="note-card">
+      <div class="note-num-badge">4</div>
+      <div class="note-text">以上行程皆可視現場情況 <strong>隨時調整</strong>，保持彈性最重要！😊</div>
+    </div>
+    <div class="note-card">
+      <div class="note-num-badge">5</div>
+      <div class="note-text">為了方便大家分帳，已在 <strong>Splitwise</strong> 建立好群組，請點上方 💸 <strong>分帳</strong> Tab 加入唷！</div>
+    </div>
+    <div class="note-card">
+      <div class="note-num-badge">6</div>
+      <div class="note-text">請每人準備一份關於 <strong>「台北明明」</strong>，前身為 <strong>「台大補習班」</strong> 的東西，玩遊戲用的唷！🎮</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ CARS ══ -->
+<div id="cars" class="page">
+  <div class="car-page">
+
+    <!-- 出發 -->
+    <div class="car-section-title">
+      <span class="car-section-badge badge-go">🚀 6/12（五）啟程</span>
+    </div>
+    <div class="car-grid">
+
+      <div class="car-card">
+        <div class="car-card-header">
+          <div class="car-driver-emoji">🚗</div>
+          <div>
+            <div class="car-driver-name">江車</div>
+            <div class="car-driver-label">DRIVER</div>
+          </div>
+        </div>
+        <div class="car-card-body">
+          <div class="car-passengers">
+            <span class="passenger-chip">👤 吉</span>
+            <span class="passenger-chip">👤 廷</span>
+            <span class="passenger-chip">👤 淇</span>
+          </div>
+          <div class="car-meta">
+            <div class="car-meta-row">📍 <span><strong>集合地點：</strong>劍潭站 2號出口</span></div>
+            <div class="car-meta-row">🕗 <span><strong>集合時間：</strong>20:00</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <div class="car-card-header">
+          <div class="car-driver-emoji">🚗</div>
+          <div>
+            <div class="car-driver-name">嫻車</div>
+            <div class="car-driver-label">DRIVER</div>
+          </div>
+        </div>
+        <div class="car-card-body">
+          <div class="car-passengers">
+            <span class="passenger-chip">👤 新</span>
+            <span class="passenger-chip">👤 軒</span>
+          </div>
+          <div class="car-meta">
+            <div class="car-meta-row">📍 <span><strong>集合地點：</strong>菜寮站 2號出口</span></div>
+            <div class="car-meta-row">🕗 <span><strong>集合時間：</strong>20:00</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <div class="car-card-header">
+          <div class="car-driver-emoji">🚗</div>
+          <div>
+            <div class="car-driver-name">閔車</div>
+            <div class="car-driver-label">DRIVER</div>
+          </div>
+        </div>
+        <div class="car-card-body">
+          <div class="car-passengers">
+            <span class="passenger-chip" style="color: var(--muted); border-style: dashed;">✕</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 回程 -->
+    <div class="car-section-title" style="margin-top: 32px;">
+      <span class="car-section-badge badge-back">🏠 6/14（日）回程</span>
+    </div>
+    <div class="car-grid">
+
+      <div class="car-card">
+        <div class="car-card-header">
+          <div class="car-driver-emoji">🚗</div>
+          <div>
+            <div class="car-driver-name">江車</div>
+            <div class="car-driver-label">DRIVER</div>
+          </div>
+        </div>
+        <div class="car-card-body">
+          <div class="car-passengers">
+            <span class="passenger-chip">👤 吉</span>
+            <span class="passenger-chip">👤 廷</span>
+            <span class="passenger-chip">👤 淇</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <div class="car-card-header">
+          <div class="car-driver-emoji">🚗</div>
+          <div>
+            <div class="car-driver-name">嫻車</div>
+            <div class="car-driver-label">DRIVER</div>
+          </div>
+        </div>
+        <div class="car-card-body">
+          <div class="car-passengers">
+            <span class="passenger-chip">👤 祥</span>
+            <span class="passenger-chip">👤 翔</span>
+            <span class="passenger-chip">👤 軒</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <div class="car-card-header">
+          <div class="car-driver-emoji">🚗</div>
+          <div>
+            <div class="car-driver-name">閔車</div>
+            <div class="car-driver-label">DRIVER</div>
+          </div>
+        </div>
+        <div class="car-card-body">
+          <div class="car-passengers">
+            <span class="passenger-chip">👤 新</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="car-note">
+      <span>💛</span>
+      <span>集合時間地點以最終公告為準，出發前請再次確認群組通知唷！</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ SPLITWISE ══ -->
+<div id="splitwise" class="page">
+  <div class="notes-page" style="display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:60vh; text-align:center;">
+    <div style="font-size:72px; margin-bottom:16px; animation: bounce 2s ease infinite;">💸</div>
+    <h2 style="font-family:'Nunito','Noto Sans TC',sans-serif; font-size:22px; font-weight:800; color:var(--ink); margin-bottom:8px;">加入分帳群組</h2>
+    <p style="font-size:14px; color:var(--muted); margin-bottom:6px;">「宜蘭6/12-6/14」</p>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:32px; line-height:1.7;">輕鬆記帳、秒結帳<br>不用旅途結束後還要搞數學！🧮</p>
+    <a href="https://www.splitwise.com/join/fCDkN3M2Mzv+1n71mp?v=e" class="sw-btn" target="_blank" style="font-size:16px; padding:14px 36px;">點此加入群組 →</a>
+    <p style="margin-top:20px; font-size:12px; color:var(--muted);">建議下載 Splitwise APP 使用效果更好 📱</p>
+  </div>
+</div>
+
+<script>
+function showPage(id, btn) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
